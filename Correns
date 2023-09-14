@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Correns</title>
+        <link rel="stylesheet" href="cor.css">
+    </head>
+    <body>
+        <main>
+            <h1>Comptes de Correns</h1>
+
+            <fieldset>
+                <label class="numb">Chiffre d'affaire: <input id="chif" type="number"/></label><br>
+                <label class="numb">Facture d'électricité: <input id="elec" type="number"/></label><br>
+                <label class="numb">Facture d'assurance: <input id="assu" type="number"/></label><br>
+                <label class="numb">Taxe d'habitation: <input id="habi" type="number"/></label><br>
+                <label class="numb">Taxe foncière: <input id="fonc" type="number"/></label><br>
+                <label class="numb">Facture de ménage: <input id="mena" type="number"/></label><br>
+                <label class="numb">Entretien de la piscine: <input id="pisc" type="number"/></label><br>
+                <label class="numb">Entretien de la campagne: <input id="camp" type="number"/></label><br>
+                <label class="numb">Frais divers(<button onclick="fra()" class="arf">faire l'addition</button>): <input id="dive" type="number"/></label><br><br>
+
+                <button onclick="valId()" class="butt">Faire le calcul!</button>
+            </fieldset>
+            <br><br>
+            <fieldset>
+                <h2>Résultat:</h2>
+                <p id="result" class="pp"></p>
+            </fieldset>
+        </main>
+        <style>
+            .numb {
+                font-size: 17px;
+            }
+            h1 {
+                text-align: center;
+            }
+            .butt {
+                width: 12%;
+                height: 27%;
+                font-size: 15px;
+                background-color: rgb(101, 213, 211);
+            }
+            .pp {
+                font-size: 17px;
+                font-weight: bold;
+            }
+            body {
+                background-image: url(https://th.bing.com/th/id/OIG.o_LGH_6u.1y79jaDwEOD?pid=ImgGn);
+                background-size: cover;
+                background-position: center;
+            }
+            fieldset {
+                background-color: rgb(219, 241, 244);
+            }
+            .arf {
+                background-color: rgb(219, 241, 244);
+                border-color: rgb(255, 0, 0);
+                font-size: 14px;
+                color:rgb(6, 6, 96);
+            }
+        </style>
+        <script>
+            function valId() {
+                chif = document.getElementById("chif").value;
+                elec = document.getElementById("elec").value;
+                assu = document.getElementById("assu").value;
+                habi = document.getElementById("habi").value;
+                fonc = document.getElementById("fonc").value;
+                mena = document.getElementById("mena").value;
+                pisc = document.getElementById("pisc").value;
+                camp = document.getElementById("camp").value;
+                dive = document.getElementById("dive").value;
+
+                tab = []
+                
+                add = Number(elec) + Number(assu) + Number(habi) + Number(fonc) + Number(mena) + Number(pisc) + Number(camp) + Number(dive);
+                benef = Number(chif) - Number(add)
+                
+                tab.push("Chiffre d'affaire: " + chif + "€");
+                tab.push("Facture électrique: " + elec + "€");
+                tab.push("Facture d'assurance: " + assu + "€");
+                tab.push("Taxe d'habitation: " + habi + "€");
+                tab.push("Taxe foncière: " + fonc + "€");
+                tab.push("Facture de ménage: " + mena + "€");
+                tab.push("Entretien de la piscine: " + pisc + "€");
+                tab.push("Entretien de la campagne: " + camp + "€");
+                tab.push("Frais divers: " + dive + "€");
+                tab.push("Total des frais: " + add + "€");
+                tab.push("Bénéfice: " + benef + "€");
+                result.innerHTML = '';
+                text = "";
+                for (let i = 0; i < tab.length; i++) {
+                    text += tab[i] + "<br>";
+                }
+                document.getElementById("result").innerHTML = text;
+            }
+            function fra() {
+                var n = prompt("Combien de frais divers avez vous eu?");
+                var somme = 0;
+                for (var i = 0; i < n; i++) {
+                    var x = prompt("Entrez un des frais divers.");
+                    somme += Number(x);
+                }
+                alert("La somme des frais divers est: " + somme + "€; " + " Copiez-coller le résultat.");
+            }
+        </script>
+    </body>        
+</html>
+ 
