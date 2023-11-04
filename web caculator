@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        //the function for do the calculs
+        function addi(arg1, arg2) {
+            result = arg1 + arg2;
+            return result;
+        }
+        function sous(arg1, arg2) {
+            result = arg1 - arg2;
+            return result;
+        }
+        function mult(arg1, arg2) {
+            result = arg1 * arg2;
+            return result;
+        }
+        function divi(arg1, arg2) {
+            result = arg1 / arg2;
+            return result;
+        }
+        //the prompt for know the numbers and the type of the calcul
+        whatcal = prompt("You want do\n-an addition\n-a substraction\n-a multiplication\n-a division")
+        leg1 = prompt("Enter the first number of the calcul");
+        leg2 = prompt("Enter the secund number of the calcul");
+        //return the result of the calcul
+        if (whatcal == "addition") {
+            alert(addi(leg1, leg2));
+        }
+        if (whatcal == "substraction") {
+            alert(sous(leg1, leg2));
+        }
+        if (whatcal == "multiplication") {
+            alert(mult(leg1, leg2));
+        }
+        if (whatcal == "division") {
+            alert(divi(leg1, leg2));
+        }
+    </script>
+</html>
